@@ -1,5 +1,5 @@
 /**
-*	@author 
+*	@author Denis Sehic
 *	@date 
 *	@file LinkedList.hpp
 *	@brief Implementation file for templated LinkedList class
