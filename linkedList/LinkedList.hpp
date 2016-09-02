@@ -35,14 +35,26 @@ int LinkedList<T>::size() const
 template <typename T>
 bool LinkedList<T>::search(T value) const
 {
-        Node<T>* temp = m_front;
         bool isFound = false;
+        Node* n = m_front;
+        int temp = 0;
 
-        /** TODO
-                Fix this method
-        */
+        while (n != NULL)
+        {
+            if (n->getValue() == value)
+            {
+                isFound = true;
+            }
+            n = n -> getNext();
+            temp++;
+        }
 
-        return(isFound);
+        if (isFound == true)
+            cout<< value << " is in the list."<<endl;
+        else
+            cout<< value << " is NOT in the list. " << endl;
+
+        return isFound;
 }
 
 template <typename T>
@@ -96,15 +108,27 @@ void LinkedList<T>::addFront(T value)
 template <typename T>
 bool LinkedList<T>::removeBack()
 {
-	Node<T>* lastNode = nullptr;
-	Node<T>* secondintoLast = nullptr;
-	bool isRemoved = false;
-
-	/** TODO 
-		Fix this method
-	*/
-
-	return(isRemoved);
+        bool isRemoved = false;
+        if(m_front != NULL){
+        Node* end = m_front;
+        Node* prev_end;
+            while(end->getNext() != NULL)
+            {
+                 prev_end = end;
+                 end = end->getNext();
+            }
+            prev_end->setNext(0);
+            delete end;
+         isRemoved = true;
+           }
+        if (isRemoved == true)
+        {
+            m_size--;
+            cout << "Removal Successful!" <<endl;
+            return true;
+        }
+        else
+            return false;
 }	
 
 template <typename T>
